@@ -1,0 +1,13 @@
+eureka:
+  client:
+    service-url:
+      defaultZone: http://localhost:9001/eureka/
+spring:
+  cloud:
+    config:
+      name: user
+      profile: dev
+      label: master
+      discovery:
+        enabled: true
+        service-id: nj-config

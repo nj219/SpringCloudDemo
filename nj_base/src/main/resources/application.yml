@@ -1,0 +1,22 @@
+spring:
+  application:
+    name: nj-base
+  profiles:
+    active: p2
+eureka:
+  client:
+    service-url:
+      defaultZone: http://peer1:1111/eureka/,http://peer1:1112/eureka/,http://peer1:1113/eureka/
+
+---
+server:
+  port: 9004
+spring:
+  profiles:
+    active: p1
+---
+spring:
+  profiles:
+    active: p2
+server:
+  port: 9024

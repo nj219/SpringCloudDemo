@@ -1,0 +1,22 @@
+server:
+  port: 12000
+spring:
+  application:
+    name: nj-config
+  cloud:
+    config:
+      server:
+        git:
+          uri: https://gitee.com/niu_j/tensquare-config.git
+  rabbitmq:
+    host: 192.168.232.157
+    port: 5672
+eureka:
+  client:
+    service-url:
+      defaultZone: http://localhost:9001/eureka/
+management:
+  endpoints:
+    web:
+      exposure:
+        include: bus-refresh

@@ -1,0 +1,46 @@
+spring:
+  application:
+    name: nj-eureka
+  profiles:
+    active: peer3
+
+---
+spring:
+  profiles: peer1
+server:
+  port: 1111
+eureka:
+  instance:
+    hostname: peer2
+  client:
+    service-url:
+      defaultZone: http://peer2:1112/eureka/,http://peer3:1113/eureka
+    register-with-eureka: true   #是否注册到eureka
+    fetch-registry: true     #是否从eureka中获取注册信息
+---
+spring:
+  profiles: peer2
+server:
+  port: 1112
+eureka:
+  instance:
+    hostname: peer2
+  client:
+    service-url:
+      defaultZone: http://peer1:1111/eureka/,http://peer3:1113/eureka
+    register-with-eureka: true   #是否注册到eureka
+    fetch-registry: true     #是否从eureka中获取注册信息
+
+---
+spring:
+  profiles: peer3
+server:
+  port: 1113
+eureka:
+  instance:
+    hostname: peer3
+  client:
+    service-url:
+      defaultZone: http://peer1:1111/eureka/,http://peer3:1112/eureka
+    register-with-eureka: true   #是否注册到eureka
+    fetch-registry: true     #是否从eureka中获取注册信息

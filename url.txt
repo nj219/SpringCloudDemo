@@ -1,0 +1,4 @@
+eureka:9001
+user:9002
+qa:9003
+base:9004

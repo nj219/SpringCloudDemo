@@ -1,0 +1,20 @@
+server:
+  port: 9989
+spring:
+  application:
+    name: nj-manager
+eureka:
+  client:
+    service-url:
+      defaultZone: http://peer1:1111/eureka,http://peer1:1112/eureka,http://peer1:1113/eureka
+zuul:
+  routes:
+    nj-user:
+      path: /user/**
+      serviceId: nj-user
+    nj-qa:
+      path: /qa/**
+      serviceId: nj-qa
+    nj-base:
+      path: /base/**
+      serviceId: nj-base
